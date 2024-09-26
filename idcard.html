@@ -353,14 +353,14 @@
     <script>
       "use script";
 
-      let colorArray = ["", "yellow", "white", "orangered", "white", "white"];
+      let colorArray = ["yellow", "white", "orangered", "white", "white", ""];
       let backgroundColorArray = [
-        "",
         "green",
         "blue",
         "orange",
         "purple",
         "navy",
+        "",
       ];
 
       let previousBtn = document.querySelector(".previous");
@@ -385,16 +385,22 @@
 
         color++;
 
-        if (color == colorArray.length - 1) {
+        if (color > colorArray.length - 1) {
           color = 0;
         }
       });
 
       function colorEffect() {
-        document.querySelector(".id-card").style.backgroundColor =
+        document.querySelector(".id-card--front").style.backgroundColor =
           backgroundColorArray[color];
 
-        document.querySelector(".id-card").style.color = colorArray[color];
+        document.querySelector(".id-card--front").style.color =
+          colorArray[color];
+        document.querySelector(".id-card--back").style.backgroundColor =
+          backgroundColorArray[color];
+
+        document.querySelector(".id-card--back").style.color =
+          colorArray[color];
       }
     </script>
   </body>
